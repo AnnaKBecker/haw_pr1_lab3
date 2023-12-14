@@ -7,10 +7,10 @@
 
 void FeldZurücksetzen(char Spielfeld[3][3]);
 void SpielFeldAusgeben(char Spielfeld[3][3]);
-int FreieFelderÜberprüfen(char Spielfeld[3][3]);                //MUSS 
+int FreieFelderÜberprüfen(char Spielfeld[3][3]);                
 void SpielerZug(char Spielfeld[3][3], char SPIELER);
 void ComputerZug(char Spielfeld[3][3], char COMPUTER);
-char GewinnerÜberprüfung(char Spielfeld[3][3]);                 //DAS HIER MUSS AUCH WEG
+char GewinnerÜberprüfung(char Spielfeld[3][3]);                
 void AusgabeGewinner(char winner, char SPIELER, char COMPUTER);
         
 int main()
@@ -52,7 +52,7 @@ int main()
         }
 
         SpielFeldAusgeben(Spielfeld);
-        /*AusgabeGewinner(Gewinner);*/      //WAS IST DEIN SCHEIß PROBLEM ???
+        AusgabeGewinner(Gewinner,SPIELER,COMPUTER);      //WAS IST DEIN SCHEIß PROBLEM ???
 
         printf("\n\nWuerden sie gerne noch einmal Spielen ?(Y/N): ");
         getchar();
@@ -67,6 +67,7 @@ int main()
 
 void FeldZurücksetzen(char Spielfeld[3][3])
 {
+
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
@@ -160,7 +161,7 @@ void ComputerZug(char Spielfeld[3][3], char COMPUTER)
 
 char GewinnerÜberprüfung(char Spielfeld[3][3])
 {
-    //check rows
+    //überprüfung der reihe
     for (int i = 0; i < 3; i++)
     {
         if (Spielfeld[i][0] == Spielfeld[i][1] && Spielfeld[i][0] == Spielfeld[i][2])
@@ -168,7 +169,7 @@ char GewinnerÜberprüfung(char Spielfeld[3][3])
             return Spielfeld[i][0];
         }
     }
-    //check columns
+    //überprüfung in spalten
     for (int i = 0; i < 3; i++)
     {
         if (Spielfeld[0][i] == Spielfeld[1][i] && Spielfeld[0][i] == Spielfeld[2][i])
@@ -176,7 +177,7 @@ char GewinnerÜberprüfung(char Spielfeld[3][3])
             return Spielfeld[0][i];
         }
     }
-    //check diagonals
+    //überprüfung diagonalen
     if (Spielfeld[0][0] == Spielfeld[1][1] && Spielfeld[0][0] == Spielfeld[2][2])
     {
         return Spielfeld[0][0];
@@ -192,7 +193,7 @@ char GewinnerÜberprüfung(char Spielfeld[3][3])
 
 void AusgabeGewinner(char winner, char SPIELER, char COMPUTER)
 {
-    printf("Gewinner: %c, SPIELER: %c, COMPUTER: %c\n", winner, SPIELER, COMPUTER);
+    /*printf("Gewinner: %c, SPIELER: %c, COMPUTER: %c\n", winner, SPIELER, COMPUTER);*/
 
     if (winner == SPIELER)
     {
